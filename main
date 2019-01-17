@@ -16,10 +16,10 @@ class Fractalmaker implements ActionListener{
 
     
     public static void main(String[] args) {
-        new frameNice();
+        new Fractalmaker();
     }
     
-    frameNice()
+    Fractalmaker()
     {
         
     }
@@ -29,4 +29,3 @@ class Fractalmaker implements ActionListener{
         
         }
 }
-
