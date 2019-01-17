@@ -1,0 +1,12 @@
+
+package fractalmaker;
+
+
+public class Fractalmaker {
+
+    
+    public static void main(String[] args) {
+        
+    }
+    
+}
