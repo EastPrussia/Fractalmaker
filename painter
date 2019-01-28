@@ -1,0 +1,28 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package fractalmaker;
+import java.awt.*;
+import javax.swing.JPanel;
+
+public class LinesAndShapes extends JPanel {
+
+   //let's setup the frame so we can keep adding to our program
+   //custom color
+  public void paint(Graphics g) {
+  //custom color
+  
+  //draw a line (starting x,y; ending x,y)
+      
+  g.drawLine(10, 10, 40, 10);
+
+  }
+  
+  
+  
+  
+  
+  
+}
