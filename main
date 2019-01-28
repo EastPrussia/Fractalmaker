@@ -1,5 +1,4 @@
 package fractalmaker;
-
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Font;
@@ -13,23 +12,201 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-class Fractalmaker implements ActionListener {
-    
-    JButton gameButton = new JButton("Fractal Maker");
+
+
+class samSim implements ActionListener{
+    //these buttons are all used to get to different frames
     JButton instructionButton = new JButton("Press here to see instructions");
+    JButton gameButton = new JButton("FractalMaker");
+    JButton homeButton = new JButton("GO BACK");
     JButton aboutButton = new JButton("About page");
     
+    //this allows me to show image and text to the user
+    
+    JLabel textLabel = new JLabel();
     
     
-    public static void main(String[] args) {
-        new Fractalmaker();
+    //these are the different frames for each of the pages
+    JFrame frameAbout = new JFrame("About");
+    JFrame frameInstruct = new JFrame("Instructions");
+    JFrame frameMain = new JFrame("Main Page");
+    JFrame frameGame = new JFrame("FractalMaker");
+    
+    //these are the panels for each of the frames
+    JPanel panelAbout = new JPanel(new FlowLayout());
+    JPanel panelGame = new JPanel(new FlowLayout());
+    JPanel panelInstruct = new JPanel(new FlowLayout());
+    JPanel panelMain = new JPanel(new FlowLayout());
+    
+    public static void main (String[] args) 
+    {
+        
+        
+        
+        new samSim();
+            
+    }
+    //this is the constructor
+    samSim()
+    {
+        //these allow us to make the buttons do something when clicked
+        aboutButton.addActionListener(this);
+        homeButton.addActionListener(this);
+        gameButton.addActionListener(this);
+        instructionButton.addActionListener(this);
+        //this is filling the main frame at the beginning
+        frameMain.setContentPane(panelMain);
+        //these are the three buttons that the user will see on starting the gui
+        panelMain.add(instructionButton);
+        panelMain.add(gameButton);
+        panelMain.add(aboutButton);
+        //this is my prefered size
+        frameMain.setSize(500,500);
+        //allows us to see it
+        frameMain.setVisible(true);
+        //I like this color for the background
+        
+        
+        
+        //All of this long text is required so that clicking the X will close the program fully
+        frameMain.addWindowListener
+
+        (new WindowAdapter()
+
+          {
+
+            public void windowClosing(WindowEvent e)
+
+            {
+
+              System.exit(0);
+
+            }
+
+          }
+
+        );
+        
+        frameInstruct.addWindowListener
+
+        (new WindowAdapter()
+
+          {
+
+            public void windowClosing(WindowEvent e)
+
+            {
+
+              System.exit(0);
+
+            }
+
+          }
+
+        );
+        
+        frameGame.addWindowListener
+
+        (new WindowAdapter()
+
+          {
+
+            public void windowClosing(WindowEvent e)
+
+            {
+
+              System.exit(0);
+
+            }
+
+          }
+
+        );
+        
+        frameAbout.addWindowListener
+        (new WindowAdapter()
+
+          {
+
+            public void windowClosing(WindowEvent e)
+
+            {
+
+              System.exit(0);
+
+            }
+
+          }
+
+        );
+        
     }
 
-    Fractalmaker() {
+  public void actionPerformed (ActionEvent e)               
+  {
+      //if this button is clicked it will take us to a new frame
+    if(e.getSource() == instructionButton){
+        //gets rid of old frame
+        frameMain.setVisible(false);
+        //allows us to see new frame
+        frameInstruct.setVisible(true);
+        frameInstruct.setContentPane(panelInstruct);
+        
+        frameInstruct.setSize(500,500);
+        //this is the text for the instructions, the html is to format it
+        textLabel.setText("<html> This <br/> is <br/> the <br/> instructions <br/> page <br/> to <br/> use <br/> this <br/> gui <br/> you <br/> must <br/> click <br/> on <br/> buttons<html>"
+                + "");
+        //I like this font and wanted it bigger
+        textLabel.setFont(new Font("Serif", Font.PLAIN, 20));
+        panelInstruct.add(textLabel);
+        //this button takes us back to the main part
+        panelInstruct.add(homeButton);
 
+
+ 
+        
+        
     }
-
-    public void actionPerformed(ActionEvent e) {
-
+    
+    if(e.getSource() == homeButton){
+        //this is the main code for if any of the non main pages want to go back
+        //all of these are for if any of them were open
+        frameInstruct.setVisible(false);
+        frameGame.setVisible(false);
+        frameAbout.setVisible(false);
+        frameMain.setContentPane(panelMain);
+        //this is the same code as before
+        panelMain.add(instructionButton);
+        panelMain.add(gameButton);
+        
+        panelMain.setSize(500,500);
+        frameMain.setVisible(true);
     }
+    
+    
+        
+    if(e.getSource() == aboutButton){
+        //similar code to above
+        frameMain.setVisible(false);
+        frameAbout.setVisible(true);
+        frameAbout.setContentPane(panelAbout);
+        //this is the same label as before but different text
+        panelAbout.add(textLabel);
+        textLabel.setText("<html>Version 1.3 <br/>Release Date: 21/9/18 <br/>Designed by Sam Parkinson Corp. <br/>Phone number: 6472311344  <html>");
+        frameAbout.setSize(500,500);
+        
+        panelAbout.add(homeButton);
+        }
+    
+    
+        if(e.getSource() == gameButton){
+        frameMain.setVisible(false);
+        frameGame.setVisible(true);
+        frameGame.setContentPane(panelGame);
+        frameGame.setSize(500,500);
+        
+        }
+  }
+
 }
+
