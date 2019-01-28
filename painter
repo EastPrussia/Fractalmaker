@@ -15,9 +15,20 @@ public class LinesAndShapes extends JPanel {
   //custom color
   
   //draw a line (starting x,y; ending x,y)
+  
+   int x1 = 100;
+   int y1= 100;
+   int x2= 200;
+   int y2 = 200;
+   
       
-  g.drawLine(10, 10, 40, 10);
-
+      
+  g.drawRect(x1, y1, x2, y2);
+  
+  
+  
+  
+  
   }
   
   
