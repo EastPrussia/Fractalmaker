@@ -202,9 +202,8 @@ class samSim implements ActionListener{
         if(e.getSource() == gameButton){
         frameMain.setVisible(false);
         frameGame.setVisible(true);
-        frameGame.setContentPane(panelGame);
         frameGame.setSize(500,500);
-        
+        frameGame.getContentPane().add(new LinesAndShapes());
         }
   }
 
